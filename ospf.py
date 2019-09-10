@@ -9,14 +9,11 @@ if (routers_num <= 0):
 
 AllLinks = []
 
-router = 0
-while (router < routers_num - 1):
-	secondrouter = router + 1
-	while (secondrouter < routers_num):
+for router in range(0, routers_num - 1):
+	for secondrouter in range(router+1, routers_num):
 		print("How many links do you have between R" + str(router+1) + " and R" + str(secondrouter+1) + "?")
 		links_num = int(input())
-		link = 0
-		while (link < links_num):
+		for link in range (0, links_num):
 			NewLink = []
 			print("Link " + str(link+1) + ":")
 			print("Input IP address of R" + str(router+1))
@@ -28,10 +25,10 @@ while (router < routers_num - 1):
 			print("Input netmask")
 			netmask = input()
 			NewLink.append(netmask)
-			link = link +1
+			print("Input cost")
+			cost = int(input())
+			NewLink.append(cost)
 		AllLinks.append(NewLink)
-		secondrouter = secondrouter + 1
-	router = router + 1
 print(AllLinks)
 
 	
